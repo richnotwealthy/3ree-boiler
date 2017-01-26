@@ -45,13 +45,12 @@ module.exports = function(server) {
     });
 
     socket.on('edit-todo', function(data) {
-      data['timestamp'] = Date.now()
       r.db('3ree').table('sample').getAll(data.id)
         .update(data).run();
     });
 
-    socket.on('delete-todo', function(data) {
-      r.db('3ree').table('sample').getAll(data.id)
+    socket.on('delete-todo', function(id) {
+      r.db('3ree').table('sample').getAll(id)
         .delete().run();
     });
 

@@ -1,8 +1,23 @@
 import React, {Component} from 'react';
 
 class Todo extends Component {
+  constructor(props) {
+    super(props);
+
+    this.handleDelete = this.handleDelete.bind(this);
+    this.handleChange = this.handleChange.bind(this);
+  }
+
+  handleChange(e) {
+    this.props.editTodo(this.props.id, e.target.checked);
+  }
+
+  handleDelete() {
+    this.props.deleteTodo(this.props.id);
+  }
+
   render() {
-    const {label, isDone, deleteTodo} = this.props;
+    const {label, isDone} = this.props;
 
     return (
       <div>
@@ -10,9 +25,10 @@ class Todo extends Component {
         <input
           type="checkbox"
           checked={isDone}
-          onChange={deleteTodo}
+          onChange={this.handleChange}
+          style={{margin: 20}}
         />
-      <button>Delete</button>
+        <button onClick={this.handleDelete}>Delete</button>
       </div>
     );
   }

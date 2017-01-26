@@ -12,7 +12,7 @@ var webpackHotMiddleware = require('webpack-hot-middleware');
 
 var io = require('./socket/io');
 
-app.use(logger('dev'))
+app.use(logger('dev'));
 
 var compiler = webpack(config);
 

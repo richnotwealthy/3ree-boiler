@@ -1,7 +1,8 @@
-import { combineReducers } from 'redux';
+import {combineReducers} from 'redux';
 import dataReducer from './data-reducer';
-import injectTapEventPlugin from 'react-tap-event-plugin'
-injectTapEventPlugin()
+import injectTapEventPlugin from 'react-tap-event-plugin';
+
+injectTapEventPlugin();
 
 const rootReducer = combineReducers({
   data: dataReducer

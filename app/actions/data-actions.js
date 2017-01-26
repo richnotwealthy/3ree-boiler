@@ -11,18 +11,26 @@ export const addTodo = (newTodo) => {
   return {
     type: types.ADD_TODO,
     newTodo
-  }
+  };
 }
 
 export const editTodo = (newTodo) => {
   return {
     type: types.EDIT_TODO,
     newTodo
-  }
+  };
+}
+
+export const deleteTodo = (oldTodo) => {
+  return {
+    type: types.DELETE_TODO,
+    oldTodo
+  };
 }
 
 export default {
   loadAllData,
   addTodo,
-  editTodo
+  editTodo,
+  deleteTodo
 }

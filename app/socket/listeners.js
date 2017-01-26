@@ -17,7 +17,7 @@ export default function(store) {
 		store.dispatch(dataActions.editTodo(newTodo));
 	});
 
-	socket.on('todo-deleted', (newTodo) => {
-		store.dispatch(dataActions.deleteTodo(newTodo));
+	socket.on('todo-deleted', (oldTodo) => {
+		store.dispatch(dataActions.deleteTodo(oldTodo));
 	});
 }

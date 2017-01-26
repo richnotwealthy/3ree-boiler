@@ -6,7 +6,7 @@ class TodoInput extends Component {
 
     this.state = {
       value: ''
-    }
+    };
 
     this.handleChange = this.handleChange.bind(this);
     this.handleAdd = this.handleAdd.bind(this);

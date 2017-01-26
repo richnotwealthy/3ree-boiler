@@ -18,15 +18,27 @@ export default (state = {}, action) => {
       };
     case types.EDIT_TODO:
       console.log('attempting to edit', action.newTodo);
-      var index = state.all.findIndex(function(todo){
+      let j = state.all.findIndex(function(todo){
         return todo.id === action.newTodo.id
       })
       return {
         ...state,
         all: [
+          ...state.all.slice(0, j),
           action.newTodo,
-          ...state.all.slice(0, index),
-          ...state.all.slice(index+1)
+          ...state.all.slice(j+1)
+        ]
+      };
+    case types.DELETE_TODO:
+      console.log('attempting to delete', action.oldTodo);
+      let i = state.all.findIndex(function(todo){
+        return todo.id === action.oldTodo.id
+      })
+      return {
+        ...state,
+        all: [
+          ...state.all.slice(0, i),
+          ...state.all.slice(i+1)
         ]
       };
     default:

@@ -27,13 +27,13 @@ class App extends Component {
 }
 
 function mapStateToProps(state, props) {
-  return state || {}
+  return state || {};
 }
 
 function mapDispatchToProps(dispatch) {
   return {
     dataActions: bindActionCreators(dataActions, dispatch)
-  }
+  };
 }
 
 export default connect(mapStateToProps, mapDispatchToProps)(App);
