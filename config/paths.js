@@ -22,32 +22,7 @@ function resolveApp(relativePath) {
   return path.resolve(relativePath);
 }
 
-if (isInCreateReactAppSource) {
-  // create-react-app development: we're in ./config/
-  module.exports = {
-    appBuild: resolveOwn('../build'),
-    appHtml: resolveOwn('../template/index.html'),
-    appFavicon: resolveOwn('../template/favicon.ico'),
-    appPackageJson: resolveOwn('../package.json'),
-    appSrc: resolveOwn('../template/src'),
-    appNodeModules: resolveOwn('../node_modules'),
-    ownNodeModules: resolveOwn('../node_modules')
-  };
-} else if (!isEjected) {
-  // before eject: we're in ./node_modules/react-scripts/config/
-  module.exports = {
-    appBuild: resolveApp('build'),
-    appHtml: resolveApp('views/index.html'),
-    appFavicon: resolveApp('favicon.ico'),
-    appPackageJson: resolveApp('package.json'),
-    appSrc: resolveApp('app'),
-    appNodeModules: resolveApp('node_modules'),
-    // this is empty with npm3 but node resolution searches higher anyway:
-    ownNodeModules: resolveOwn('../node_modules')
-  };
-} else {
-  // after eject: we're in ./config/
-  module.exports = {
+module.exports = {
     appBuild: resolveApp('build'),
     appHtml: resolveApp('views/index.html'),
     appFavicon: resolveApp('favicon.ico'),
@@ -56,4 +31,3 @@ if (isInCreateReactAppSource) {
     appNodeModules: resolveApp('node_modules'),
     ownNodeModules: resolveApp('node_modules')
   };
-}

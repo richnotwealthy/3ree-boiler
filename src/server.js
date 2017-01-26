@@ -1,4 +1,4 @@
-var express = require( 'express');
+var express = require('express');
 var app = express();
 var router = express.Router();
 
@@ -6,7 +6,7 @@ var logger = require('morgan');
 
 var path = require('path');
 var config = require( '../config/webpack.config.dev');
-var webpack = require( 'webpack');
+var webpack = require('webpack');
 var webpackDevMiddleware = require('webpack-dev-middleware');
 var webpackHotMiddleware = require('webpack-hot-middleware');
 
@@ -26,11 +26,6 @@ app.use(webpackDevMiddleware(compiler, {
     ignored: /node_modules/
   }
 }));
-// .listen(port, (err, result) => {
-// if (err) {
-// return console.log(err);
-// }
-// });
 
 app.use(webpackHotMiddleware(compiler, {
   log: console.log

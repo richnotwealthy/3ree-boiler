@@ -61,11 +61,14 @@ module.exports = {
       },
       {
         test: /\.css$/,
+        loader: 'style!css?modules',
+        include: /flexboxgrid/,
+      },
+      {
+        test: /\.css$/,
         include: [paths.appSrc, paths.appNodeModules],
-        // Disable autoprefixer in css-loader itself:
-        // https://github.com/webpack/css-loader/issues/281
-        // We already have it thanks to postcss.
-        loader: ExtractTextPlugin.extract('style', 'css?-autoprefixer!postcss')
+        loader: 'style!css!postcss',
+        exclude: /flexboxgrid/
       },
       {
         test: /\.json$/,
