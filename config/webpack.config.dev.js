@@ -99,7 +99,7 @@ module.exports = {
   plugins: [
     new HtmlWebpackPlugin({
       inject: true,
-      template: paths.appHtml,
+      template: paths.appDevHtml,
       favicon: paths.appFavicon,
     }),
     new webpack.DefinePlugin({ 'process.env.NODE_ENV': '"development"' }),

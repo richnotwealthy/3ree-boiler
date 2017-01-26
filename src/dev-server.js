@@ -32,7 +32,7 @@ app.use(webpackHotMiddleware(compiler, {
 }));
 
 router.get('*', function(req, res) {
-  res.sendFile(path.join(__dirname,'../views/index.html'));
+  res.sendFile(path.join(__dirname, '../views/index-dev.html'));
 });
 
 app.use('/', router);

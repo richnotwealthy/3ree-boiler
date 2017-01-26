@@ -9,11 +9,15 @@ var rimrafSync = require('rimraf').sync;
 var webpack = require('webpack');
 var config = require('../config/webpack.config.prod');
 var paths = require('../config/paths');
+var server = require('./prod-server');
 
 // Remove all content but keep the directory so that
 // if you're in it, you don't end up in Trash
 rimrafSync(paths.appBuild + '/*');
 
+var DEFAULT_PORT = process.env.PORT || 9000;
+
+process.stdout.write('\x1bc');
 console.log('Creating an optimized production build...');
 webpack(config).run(function(err, stats) {
   if (err) {
@@ -55,33 +59,12 @@ webpack(config).run(function(err, stats) {
       '  ' + chalk.dim(asset.folder + path.sep) + chalk.cyan(asset.name)
     );
   });
+
   console.log();
 
-  var openCommand = process.platform === 'win32' ? 'start' : 'open';
-  var homepagePath = require(paths.appPackageJson).homepage;
-  if (homepagePath) {
-    console.log('You can now publish them at ' + homepagePath + '.');
-    console.log('For example, if you use GitHub Pages:');
-    console.log();
-    console.log('  git commit -am "Save local changes"');
-    console.log('  git checkout -B gh-pages');
-    console.log('  git add -f build');
-    console.log('  git commit -am "Rebuild website"');
-    console.log('  git filter-branch -f --prune-empty --subdirectory-filter build');
-    console.log('  git push -f origin gh-pages');
-    console.log('  git checkout -');
-    console.log();
-  } else {
-    console.log('You can now serve them with any static server.');
-    console.log('For example:');
-    console.log();
-    console.log('  npm install -g pushstate-server');
-    console.log('  pushstate-server build');
-    console.log('  ' + openCommand + ' http://localhost:9000');
-    console.log();
-    console.log(chalk.dim('The project was built assuming it is hosted at the root.'));
-    console.log(chalk.dim('Set the "homepage" field in package.json to override this.'));
-    console.log(chalk.dim('For example, "homepage": "http://user.github.io/project".'));
-  }
+  // Start the production server
+  server(DEFAULT_PORT);
+
+  console.log(chalk.cyan('Starting the server...'));
   console.log();
 });

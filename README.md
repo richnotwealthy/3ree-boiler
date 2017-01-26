@@ -29,4 +29,4 @@ The app will automatically open a new tab in Google Chrome at [http://localhost:
 
 ## Production build
 
-To build this app into a static, minified package, running `npm run build` will create such a package under the `/build/` directory.
+To build this app into a static, minified package, running `npm run build` will create such a package under the `/build/` directory and run the production server at [http://localhost:9000/](http://localhost:9000/).

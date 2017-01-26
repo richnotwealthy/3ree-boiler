@@ -8,7 +8,7 @@ var opn = require('opn');
 var detect = require('./utils/detectPort');
 var prompt = require('./utils/prompt');
 var config = require('../config/webpack.config.dev');
-var server = require('./server');
+var server = require('./dev-server');
 
 
 // Tools like Cloud9 rely on this

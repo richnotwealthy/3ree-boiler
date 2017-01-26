@@ -106,7 +106,7 @@ module.exports = {
   plugins: [
     new HtmlWebpackPlugin({
       inject: true,
-      template: paths.appHtml,
+      template: paths.appProdHtml,
       favicon: paths.appFavicon,
       minify: {
         removeComments: true,
