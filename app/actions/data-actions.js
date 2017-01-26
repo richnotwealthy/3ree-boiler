@@ -7,22 +7,22 @@ export const loadAllData = (data) => {
   };
 }
 
-export const addForm = (newForm) => {
+export const addTodo = (newTodo) => {
   return {
-    type: types.ADD_FORM,
-    newForm
+    type: types.ADD_TODO,
+    newTodo
   }
 }
 
-export const editForm = (newForm) => {
+export const editTodo = (newTodo) => {
   return {
-    type: types.EDIT_FORM,
-    newForm
+    type: types.EDIT_TODO,
+    newTodo
   }
 }
 
 export default {
   loadAllData,
-  addForm,
-  editForm
+  addTodo,
+  editTodo
 }

@@ -7,24 +7,24 @@ export default (state = {}, action) => {
         ...state,
         all: action.data
       };
-    case types.ADD_FORM:
-      console.log('attempting to add', action.newForm);
+    case types.ADD_TODO:
+      console.log('attempting to add', action.newTodo);
       return {
         ...state,
         all: [
-          action.newForm,
+          action.newTodo,
           ...state.all
         ]
       };
-    case types.EDIT_FORM:
-      console.log('attempting to edit', action.newForm);
-      var index = state.all.findIndex(function(campaign){
-        return campaign.id === action.newForm.id
+    case types.EDIT_TODO:
+      console.log('attempting to edit', action.newTodo);
+      var index = state.all.findIndex(function(todo){
+        return todo.id === action.newTodo.id
       })
       return {
         ...state,
         all: [
-          action.newForm,
+          action.newTodo,
           ...state.all.slice(0, index),
           ...state.all.slice(index+1)
         ]

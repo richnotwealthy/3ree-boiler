@@ -1,9 +1,10 @@
 import React, { Component } from 'react';
 import {connect} from 'react-redux';
 import {bindActionCreators} from 'redux';
-import { Grid, Row } from 'react-flexbox-grid/lib/index'
+import { Grid, Row } from 'react-flexbox-grid/lib/index';
 import logo from './logo.svg';
 import './App.css';
+import TodoList from './components/TodoList';
 import dataActions from './actions/data-actions';
 import {Link} from 'react-router';
 
@@ -16,8 +17,8 @@ class App extends Component {
         </div>
 
         <Grid className="main">
-          <Row>
-            This is a start, I guess.
+          <Row center="md">
+            <TodoList />
           </Row>
         </Grid>
       </div>
@@ -26,7 +27,6 @@ class App extends Component {
 }
 
 function mapStateToProps(state, props) {
-  // console.log(state);
   return state || {}
 }
 
