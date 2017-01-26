@@ -4,7 +4,7 @@ A React, Redux, RethinkDB, Express, boilerplate with Socket.io, Webpack, React R
 
 This app functions as a simple todo list with real-time functionality. Any changes to the rethinkdb table holding the todo list information will update the redux state of the application without requiring a reload.
 
-Made with the help of ejecting a create-react-app.
+Made with the help of ejecting a [create-react-app](https://github.com/facebookincubator/create-react-app).
 
 ## Dependencies
 
@@ -25,7 +25,7 @@ After cloning this package and with your rethinkdb instance up, run the followin
 > npm start
 ```
 
-The app will automatically open a new tab in Google Chrome at http://localhost:3000/ where the app is running. If you did not do `npm run setup`, the server will automatically check if the proper database and table exist and, if not, create them.
+The app will automatically open a new tab in Google Chrome at [http://localhost:3000/](http://localhost:3000/) where the app is running. If you did not do `npm run setup`, the server will automatically check if the proper database and table exist and, if not, create them.
 
 ## Production build
 
