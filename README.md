@@ -1,6 +1,6 @@
 # 3REE Boilerplate
 
-A React, Redux, RethinkDB, Express, boilerplate with Socket.io, Webpack, React Router, and React Flexbox Grid. The Webpack Dev Server also has CSS hot reloading enabled.
+A React, Redux, RethinkDB, Express, boilerplate with Socket.io, Webpack, React Router, and React Flexbox Grid. The Webpack Dev Server also has module and CSS hot replacement enabled.
 
 This app functions as a simple todo list with real-time functionality. Any changes to the rethinkdb table holding the todo list information will update the redux state of the application without requiring a reload.
 
